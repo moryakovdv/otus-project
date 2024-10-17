@@ -44,4 +44,6 @@ Otus. Java Advanced course
 RabbitMQ заапускается в отдельном docker-контейнере
 
 # Результаты
+1. OpenAPI + swaggerUI
+![image](https://github.com/user-attachments/assets/57e6a195-0578-48d5-a66d-23c270229339)
 
