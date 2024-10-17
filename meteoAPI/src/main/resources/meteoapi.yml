@@ -1,0 +1,183 @@
+openapi: "3.0.0"
+info:
+  version: 0.0.1
+  title: Meteo API
+  description: 
+  license:
+    name: APACHE2.0
+servers:
+  -
+    url: '/api/v1'
+
+
+paths:
+  /test:       
+    get:
+      summary: Тестовый метод для контроля рботоспособности   
+      tags:
+        - InformationController
+        
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так 
+          
+  /allmeteotypes:
+    get:
+      summary: Выгрузить все типы метеоинформации
+      operationId: loadAllMeteoTypes
+      tags:
+        - InformationController
+     
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так 
+    parameters:
+      - name: limit
+        in: path
+        description: limit records
+        required: true
+        schema:
+          type: array
+          items:
+            type: integer 
+            
+  /newMeteoInfoType:
+    post: 
+      summary: Создать новый тип метеоинформации
+      operationId: createMeteoInfoType
+      tags:
+        - InformationController
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так   
+  
+  /stakeholder:
+    get:
+      summary: Выгрузить всех stakeholder-ов   
+      tags:
+        - StakeholderController
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так     
+    post:
+      summary: 
+      operationId: createStakeholder
+      tags:
+          - StakeholderController
+      responses:
+        '200':
+          description: Все ОК
+        '400':
+          description: Неверные параметры
+        '500':
+          description: Что-то пошло не так
+  
+  /stakeholder/{stakeholderId}:
+    get:
+      summary: Загрузить конкретного stakehlder-а
+      operationId: loadStakeholderById
+      tags:
+          - StakeholderController
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так 
+   
+    delete:
+      summary: Удалить конкретного stakehlder-а
+      operationId: deleteStakeholderById
+      tags:
+          - StakeholderController
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так 
+    
+    parameters:
+      - name: stakeholderId
+        in: path
+        description: ID stakeholderId
+        required: true
+        schema:
+          type: array
+          items:
+            type: integer 
+  
+          
+  /provider:
+    get:
+      summary: Выгрузить всех provider-ов   
+      tags:
+        - ProviderController
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так      
+    post:
+      summary: 
+      operationId: createProvider
+      tags:
+          - ProviderController
+      responses:
+        '200':
+          description: Все ОК
+        '400':
+          description: Неверные параметры
+        '500':
+          description: Что-то пошло не так
+  
+  /provider/{providerId}:
+    get:
+      summary: Загрузить конкретного provider-а
+      operationId: loadProviderById
+      tags:
+          - ProviderController
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так   
+                
+      parameters:
+      - name: providerId
+        in: path
+        description: ID providerId
+        required: true
+        schema:
+          type: array
+          items:
+            type: integer 
+        
+    delete:
+      summary: Удалить конкретного provider-а
+      operationId: deleteProviderById
+      tags:
+          - ProviderController
+      responses:
+        '200':
+          description: It works!
+        '500':
+          description: Что-то пошло не так   
+                
+   
+      parameters:
+      - name: providerId
+        in: path
+        description: ID providerId
+        required: true
+        schema:
+          type: array
+          items:
+            type: integer 
+    

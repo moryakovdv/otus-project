@@ -1,4 +1,4 @@
-package otus.moryakovdv.meteousers.service;
+package otus.moryakovdv.meteoapi.service;
 
 import org.springframework.stereotype.Component;
 

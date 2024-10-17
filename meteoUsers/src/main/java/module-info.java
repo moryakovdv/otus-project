@@ -28,4 +28,7 @@ open module otus.moryakovdv.meteousers {
 	requires transitive  io.github.resilience4j.ratelimiter;
 	requires transitive  io.github.resilience4j.core;
 	
+	requires reactor.core;
+	requires org.reactivestreams;
+	
 }

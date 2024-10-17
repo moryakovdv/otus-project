@@ -1,4 +1,4 @@
-package otus.moryakovdv.meteoinformation.model;
+package otus.moryakovdv.meteoproducers.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,23 +10,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**Сущность ААэродром*/
+/** Сущность */
 @Entity
-@Table(name = "AIRFIELD")
+@Table(name = "REGIONALMETPRODUCER")
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode(of = { "id" })
 @Getter
 @Setter
-public class Airfield implements Origin {
+public class RegionalMETProducer implements MeteoProducer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private FlightInformationRegion fir;
+
 	private String icaoCode;
-	private String iataCode;
-	
-	private String name;
-	private String country; 
 
 }

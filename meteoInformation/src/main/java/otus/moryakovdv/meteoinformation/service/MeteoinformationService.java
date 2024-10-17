@@ -1,4 +1,4 @@
-package otus.moryakovdv.meteoinformation.web;
+package otus.moryakovdv.meteoinformation.service;
 
 import org.springframework.stereotype.Service;
 

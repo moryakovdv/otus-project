@@ -26,5 +26,5 @@ public class AirCompany implements MeteoUser {
 	private long id;
 	
 
-
+	private String icaoCode;
 }

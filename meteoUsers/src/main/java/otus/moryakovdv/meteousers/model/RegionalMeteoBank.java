@@ -1,32 +1,30 @@
-package otus.moryakovdv.meteoinformation.model;
+package otus.moryakovdv.meteousers.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**Сущность ААэродром*/
+/**Сущность Пользователь*/
 @Entity
-@Table(name = "AIRFIELD")
+@Table(name = "REGIONALMETEOBANK")
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Getter
 @Setter
-public class Airfield implements Origin {
+public class RegionalMeteoBank implements MeteoUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private FlightInformationRegion fir;
-	private String icaoCode;
-	private String iataCode;
 	
-	private String name;
-	private String country; 
 
+	private String icaoCode;
 }

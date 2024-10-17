@@ -12,12 +12,12 @@ import lombok.Setter;
 
 /**Сущность */
 @Entity
-@Table(name = "LocalAerodromeProducer")
+@Table(name = "LOCALAERODROMEPRODUCER")
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Getter
 @Setter
-public class LocalAirfieldProducer implements MeteoProducerEntity {
+public class LocalAirfieldProducer implements MeteoProducer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +25,7 @@ public class LocalAirfieldProducer implements MeteoProducerEntity {
 	
 
 
-	
+	private String icaoCode;
 	
 
 	
