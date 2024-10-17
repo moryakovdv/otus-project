@@ -3,7 +3,7 @@ open module otus.moryakovdv.meteousers {
 	exports otus.moryakovdv.meteousers.model;
 	exports otus.moryakovdv.meteousers.repository;
 	exports otus.moryakovdv.meteousers.web;
-	exports  otus.moryakovdv.meteousers;
+	
 
 	requires transitive jakarta.servlet;
 	requires jakarta.persistence;

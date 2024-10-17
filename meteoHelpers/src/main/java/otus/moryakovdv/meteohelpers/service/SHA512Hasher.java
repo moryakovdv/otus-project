@@ -1,7 +1,6 @@
 package otus.moryakovdv.meteohelpers.service;
 
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import lombok.extern.slf4j.Slf4j;

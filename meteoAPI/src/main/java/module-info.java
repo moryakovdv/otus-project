@@ -4,7 +4,6 @@ open module otus.moryakovdv.meteoapi {
 	exports  otus.moryakovdv.meteoapi;
 
 	requires transitive jakarta.servlet;
-	requires jakarta.persistence;
 	
 	requires jakarta.annotation;
 	
@@ -18,8 +17,7 @@ open module otus.moryakovdv.meteoapi {
 	requires spring.boot.autoconfigure;
 	requires spring.context;
 	requires spring.core;
-	requires spring.data.commons;
-	requires spring.data.jpa;
+
 	requires spring.web;
 	
 	requires transitive  io.github.resilience4j.circuitbreaker;

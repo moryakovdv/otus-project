@@ -1,15 +1,13 @@
 package otus.moryakovdv.meteohelpers.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-/***Класс релизации бизнес-логики сервиса**/
-@Component
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
 public class HelperService {
 
-	
-	
-	
-	
 	
 	
 

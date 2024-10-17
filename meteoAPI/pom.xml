@@ -12,8 +12,14 @@
 		<artifactId>meteoservice</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
 	<dependencies>
 
+		<dependency>
+			<groupId>otus.moryakovdv.meteoservice</groupId>
+			<artifactId>meteohelpers</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 
 	</dependencies>
 
@@ -21,12 +27,27 @@
 		<finalName>meteo-api</finalName>
 
 		<plugins>
+
 			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+
+			</plugin>
+			
+			
+
+			<plugin>
+
+
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
 				<version>7.8.0</version>
 				<executions>
+
 					<execution>
+						<id>openapi-generation</id>
+						<phase></phase>
+
 						<goals>
 							<goal>generate</goal>
 						</goals>

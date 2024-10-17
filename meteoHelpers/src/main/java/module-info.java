@@ -6,7 +6,6 @@ open module otus.moryakovdv.meteohelpers {
 	exports  otus.moryakovdv.meteohelpers;
 
 	requires transitive jakarta.servlet;
-	requires jakarta.persistence;
 		
 	requires lombok;
 	requires org.slf4j;
@@ -15,8 +14,6 @@ open module otus.moryakovdv.meteohelpers {
 	requires spring.boot.autoconfigure;
 	requires spring.context;
 	requires spring.core;
-	requires spring.data.commons;
-	requires spring.data.jpa;
 	requires spring.web;
 	
 	
