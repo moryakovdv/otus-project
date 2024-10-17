@@ -1,0 +1,141 @@
+version: '3.1'
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - otus
+
+  meteo-api:
+    build:
+      context: ./meteoApi
+      dockerfile: Dockerfile
+    hostname: meteoapi
+    container_name: meteoApi
+    restart: always
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 8080:8888
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+ 
+  meteo-information:
+    build:
+      context: ./meteoInformation
+      dockerfile: Dockerfile
+    hostname: meteoInformation
+    container_name: meteoInformation
+    restart: always
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 8081:8888
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+      
+  meteo-producers:
+    build:
+      context: ./meteoProducers
+      dockerfile: Dockerfile
+    hostname: meteoProducers
+    container_name: meteoProducers
+    restart: always
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 8082:8888
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+      
+  meteo-users:
+    build:
+      context: ./meteoUsers
+      dockerfile: Dockerfile
+    hostname: meteoUsers
+    container_name: meteoUsers
+    restart: always
+    
+  meteo-services:
+    build:
+      context: ./meteoServices
+      dockerfile: Dockerfile
+    hostname: meteoServices
+    container_name: meteoServices
+    restart: always
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 8084:8888
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+  meteo-helpers:
+    build:
+      context: ./meteoHelpers
+      dockerfile: Dockerfile
+    hostname: meteoHelpers
+    container_name: meteoHelpers
+    restart: always
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 8085:8888
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+  prometheus:
+    image: prom/prometheus
+    depends_on:
+      - meteo-api
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - otus
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    restart: always
+    hostname: prometheus
+
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/:/etc/grafana/provisioning/
+    env_file:
+      - ./monitoring/grafana/config.monitoring
+    networks:
+      - otus
+    restart: always
+
+networks:
+  otus:
+    driver: bridge
