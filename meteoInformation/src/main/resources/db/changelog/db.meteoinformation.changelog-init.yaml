@@ -1,0 +1,143 @@
+##Changeset с создание таблиц 
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.meteoinformation.changelog-create-structure.yaml
+  - changeSet:
+      id: A
+      author: moryakovdv
+##проверка на существование таблицы
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+           - tableExists:
+                 tableName: origin
+      
+      changes:
+        -  createSequence:
+             cacheSize:  371717
+             cycle:  false
+             dataType:  BIGINT
+             incrementBy:  1
+             ordered:  true
+             schemaName:  public
+             sequenceName:  origin_seq
+             startValue:  1
+     
+      
+        - createTable:
+            tableName: origin
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column: 
+                   name: icao_code 
+                   type: varchar(4)
+                   constraints:
+                     unique: true
+                     nullable: false
+              - column: 
+                   name: name 
+                   type: varchar(255)
+                   constraints:
+                     unique: false
+                     nullable: true
+              - column: 
+                   name: origin_discriminator 
+                   type: varchar(20)
+                   constraints:
+                     unique: false
+                     nullable: true
+                     
+        - createTable: 
+            tableName: flight_information_region
+            columns: 
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+             
+              - column: 
+                  name: region_coordinates
+                  type: varchar(1024)
+                  constraints:
+                    nullable: true 
+                                      
+        - createTable:
+            tableName: airfield
+            columns:
+              - column:
+                  name: origin_id 
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_airfield_fir
+                    references: origin(id)
+            
+              - column: 
+                   name: iata_code 
+                   type: varchar(3)
+                   constraints:
+                     unique: true
+                     nullable: false
+          
+              - column: 
+                   name: country 
+                   type: varchar(2)
+                   constraints:
+                     unique: false
+                     nullable: false
+        - createTable:
+            tableName: meteoproduct
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+             
+              - column: 
+                   name: type 
+                   type: varchar(255)
+                   constraints:
+                     unique: false
+                     nullable: false 
+              - column: 
+                   name: issue_time 
+                   type: BIGINT
+                   constraints:
+                     unique: false
+                     nullable: false
+              - column: 
+                   name: issuer 
+                   type: varchar(255)
+                   constraints:
+                     unique: false
+                     nullable: false
+              - column: 
+                   name: content 
+                   type: text
+                   constraints:
+                     unique: false
+                     nullable: false 
+              - column:
+                  name: origin_id 
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_product_origin
+                    references: origin(id)
+              
+            
+        
+       
+             
+          

@@ -6,14 +6,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import otus.moryakovdv.meteoinformation.model.Airfield;
+import otus.moryakovdv.meteoinformation.model.FlightInformationRegion;
 
-/**Spring JPA репозиторий для работы с сущностью*/
+/**Spring JPA репозиторий для работы с сущностью FlightInformationRegion */
 @Repository
-public interface FIRCrudRepository extends CrudRepository<Airfield, Long> {
+public interface FIRCrudRepository extends CrudRepository<FlightInformationRegion, Long> {
 	
-	Optional<Airfield> findById(long id);
+	Optional<FlightInformationRegion> findById(long id);
 	
-	
+	Optional<FlightInformationRegion> findByIcaoCode(String icaoCode);
 
 	
 	

@@ -71,6 +71,16 @@ services:
     hostname: meteoUsers
     container_name: meteoUsers
     restart: always
+
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 8083:8888
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
     
   meteo-services:
     build:
