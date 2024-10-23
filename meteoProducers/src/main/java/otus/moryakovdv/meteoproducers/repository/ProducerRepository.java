@@ -5,14 +5,14 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import otus.moryakovdv.meteoproducers.model.MeteoProducer;
+import otus.moryakovdv.meteoproducers.model.METPProducer;
 
 /**Spring JPA репозиторий для работы с сущностью MeteoProducerEntity*/
 @Repository
-public interface ProducerRepository extends CrudRepository<MeteoProducer, Long> {
+public interface ProducerRepository extends CrudRepository<METPProducer, Long> {
 	
-	Optional<MeteoProducer> findById(long id);
-	Optional<MeteoProducer> findByIcaoCode(String code);
+	Optional<METPProducer> findById(long id);
+	Optional<METPProducer> findByIcaoCode(String code);
 
 	
 	

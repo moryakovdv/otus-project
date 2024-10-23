@@ -1,4 +1,4 @@
-package otus.moryakovdv.meteousers.model;
+package otus.moryakovdv.meteoproducers.model;
 
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
@@ -16,15 +16,15 @@ import lombok.experimental.SuperBuilder;
 //@MappedSuperclass
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name="meteouser_discriminator", discriminatorType=DiscriminatorType.STRING, length=20)
+@DiscriminatorColumn(name="metp_discriminator", discriminatorType=DiscriminatorType.STRING, length=20)
 @Getter
 @Setter
 @SuperBuilder(toBuilder = true)
-public abstract class MeteoUser {
+public abstract class METPProducer {
 	
 	@Id
-	@SequenceGenerator(name = "meteouser_seq", sequenceName = "meteouser_seq",allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meteouser_seq")
+	@SequenceGenerator(name = "metp_seq", sequenceName = "metp_seq",allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "metp_seq")
 	private long id;
 	
 	private String icaoCode;

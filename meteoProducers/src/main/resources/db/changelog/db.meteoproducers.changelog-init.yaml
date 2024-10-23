@@ -1,0 +1,94 @@
+##Changeset с создание таблиц 
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.meteoproducers.changelog-create-structure.yaml
+  - changeSet:
+      id: A
+      author: moryakovdv
+##проверка на существование таблицы
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+           - tableExists:
+                 tableName: metpproducer
+      
+      changes:
+        -  createSequence:
+             cacheSize:  371717
+             cycle:  false
+             dataType:  BIGINT
+             incrementBy:  1
+             ordered:  true
+             schemaName:  public
+             sequenceName:  metp_seq
+             startValue:  1
+     
+      
+        - createTable:
+            tableName: metpproducer
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column: 
+                   name: icao_code 
+                   type: varchar(4)
+                   constraints:
+                     unique: true
+                     nullable: false
+              - column: 
+                   name: name 
+                   type: varchar(255)
+                   constraints:
+                     unique: false
+                     nullable: true
+              - column: 
+                   name: country 
+                   type: varchar(2)
+                   constraints:
+                     unique: false
+                     nullable: true
+              - column: 
+                   name: metp_discriminator 
+                   type: varchar(20)
+                   constraints:
+                     unique: false
+                     nullable: true
+                     
+        - createTable: 
+            tableName: regional_metp_producer
+            columns:
+             
+              - column: 
+                  name: region
+                  type: varchar(1024)
+                  constraints:
+                    nullable: true 
+                    
+        - createTable: 
+            tableName: foreign_metp_producer
+            columns:
+             
+              - column: 
+                  name: region
+                  type: varchar(1024)
+                  constraints:
+                    nullable: true 
+                                      
+        - createTable:
+            tableName: local_airfield_producer
+            columns:
+               - column: 
+                  name: location
+                  type: varchar(1024)
+                  constraints:
+                    nullable: true 
+              
+            
+        
+       
+             
+          

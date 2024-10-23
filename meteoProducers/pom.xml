@@ -34,21 +34,28 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+
+
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<finalName>meteo-producers</finalName>
 
 		<plugins>
-			
-				<plugin>
+
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<mainClass>otus.moryakovdv.meteoproducers.WebApplication</mainClass>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>

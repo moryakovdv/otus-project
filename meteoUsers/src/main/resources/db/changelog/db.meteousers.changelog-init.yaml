@@ -1,0 +1,87 @@
+##Changeset с создание таблиц 
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.meteousers.changelog-create-structure.yaml
+  - changeSet:
+      id: A
+      author: moryakovdv
+##проверка на существование таблицы
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+           - tableExists:
+                 tableName: meteouser
+      
+      changes:
+        -  createSequence:
+             cacheSize:  371717
+             cycle:  false
+             dataType:  BIGINT
+             incrementBy:  1
+             ordered:  true
+             schemaName:  public
+             sequenceName:  meteouser_seq
+             startValue:  1
+     
+      
+        - createTable:
+            tableName: meteouser
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column: 
+                   name: icao_code 
+                   type: varchar(4)
+                   constraints:
+                     unique: true
+                     nullable: false
+              - column: 
+                   name: name 
+                   type: varchar(255)
+                   constraints:
+                     unique: false
+                     nullable: true
+              - column: 
+                   name: country 
+                   type: varchar(2)
+                   constraints:
+                     unique: false
+                     nullable: true
+              - column: 
+                   name: meteouser_discriminator 
+                   type: varchar(20)
+                   constraints:
+                     unique: false
+                     nullable: true
+                     
+        - createTable: 
+            tableName: regional_meteo_bank
+            columns:
+             
+              - column: 
+                  name: wmo_code
+                  type: varchar(10)
+                  constraints:
+                    nullable: true 
+                    
+        - createTable: 
+            tableName: air_company
+            columns:
+             
+              - column: 
+                  name: iata_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: true 
+                                      
+      
+              
+            
+        
+       
+             
+          

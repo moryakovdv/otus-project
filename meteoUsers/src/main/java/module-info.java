@@ -22,6 +22,12 @@ open module otus.moryakovdv.meteousers {
 	requires spring.data.jpa;
 	requires spring.web;
 	
+	requires transitive spring.messaging;
+	requires spring.amqp;
+	requires spring.rabbit;
+	requires com.rabbitmq.client;
+	requires com.fasterxml.jackson.databind;
+	
 	requires transitive  io.github.resilience4j.circuitbreaker;
 	requires transitive io.github.resilience4j.annotations;
 	

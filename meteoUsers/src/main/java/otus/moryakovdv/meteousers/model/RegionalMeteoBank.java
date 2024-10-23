@@ -1,30 +1,22 @@
 package otus.moryakovdv.meteousers.model;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-/**Сущность Пользователь*/
+/**Сущность региональный метеобанк*/
 @Entity
-@Table(name = "REGIONALMETEOBANK")
-@NoArgsConstructor
+@DiscriminatorValue("REGIONALBANK")
 @EqualsAndHashCode(of = {"id"})
 @Getter
 @Setter
-public class RegionalMeteoBank implements MeteoUser {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+@SuperBuilder(toBuilder = true)
+public class RegionalMeteoBank extends MeteoUser {
 	
-
-	private String icaoCode;
+	/**Адрес (индекс) в ВМО*/
+	public String wmoAddress;
+	
 }
