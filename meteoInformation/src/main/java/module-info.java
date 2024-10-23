@@ -31,4 +31,6 @@ open module otus.moryakovdv.meteoinformation {
 	
 	requires reactor.core;
 	requires org.reactivestreams;
+	requires micrometer.observation;
+
 }

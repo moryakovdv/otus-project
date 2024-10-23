@@ -27,5 +27,6 @@ open module otus.moryakovdv.meteoproducers {
 	
 	requires transitive  io.github.resilience4j.ratelimiter;
 	requires transitive  io.github.resilience4j.core;
-	
+	requires micrometer.observation;
+
 }

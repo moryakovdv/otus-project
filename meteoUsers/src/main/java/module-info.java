@@ -30,5 +30,6 @@ open module otus.moryakovdv.meteousers {
 	
 	requires reactor.core;
 	requires org.reactivestreams;
-	
+	requires micrometer.observation;
+
 }

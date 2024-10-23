@@ -5,6 +5,7 @@ open module otus.moryakovdv.meteoapi {
 
 	requires transitive jakarta.servlet;
 	
+	
 	requires jakarta.annotation;
 	
 	requires otus.moryakovdv.meteohelpers; 
@@ -28,4 +29,5 @@ open module otus.moryakovdv.meteoapi {
 	
 	requires io.swagger.v3.oas.models;
 	requires io.swagger.v3.oas.annotations;
+	requires micrometer.observation;
 }
