@@ -7,11 +7,11 @@ scrape_configs:
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['meteoApi:8080']
-- job_name: 'meteoInformation-job'
+  - job_name: 'meteoInformation-job'
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['meteoInformation:8081']
-- job_name: 'meteoProducers-job'
+  - job_name: 'meteoProducers-job'
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['meteoProducers:8082']

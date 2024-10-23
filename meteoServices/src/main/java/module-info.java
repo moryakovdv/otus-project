@@ -5,11 +5,11 @@ open module otus.moryakovdv.meteoservices {
 	exports otus.moryakovdv.meteoservices.web;
 	exports  otus.moryakovdv.meteoservices;
 
-	requires transitive jakarta.servlet;
-	requires jakarta.persistence;
-	
 	requires otus.moryakovdv.meteohelpers; 
 
+	
+	requires transitive jakarta.servlet;
+	requires jakarta.persistence;
 	
 	requires lombok;
 	requires org.slf4j;
@@ -21,6 +21,14 @@ open module otus.moryakovdv.meteoservices {
 	requires spring.data.commons;
 	requires spring.data.jpa;
 	requires spring.web;
+	
+	requires transitive spring.messaging;
+	requires spring.amqp;
+	requires spring.rabbit;
+	requires com.rabbitmq.client;
+	requires com.fasterxml.jackson.databind;
+
+
 	
 	requires transitive  io.github.resilience4j.circuitbreaker;
 	requires transitive io.github.resilience4j.annotations;

@@ -118,8 +118,8 @@ services:
 
   prometheus:
     image: prom/prometheus
-    depends_on:
-      - meteo-api
+#    depends_on:
+#      - meteo-api
     container_name: prometheus
     ports:
       - 9090:9090
