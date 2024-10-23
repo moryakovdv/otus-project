@@ -23,7 +23,7 @@
 		<module>meteoProducers</module>
 		<module>meteoInformation</module>
 		<module>meteoServices</module>
-		<module>meteoAPI</module>
+		<module>meteoApi</module>
 
 
 	</modules>
@@ -65,6 +65,14 @@
 				<version>3.3.4</version>
 			</dependency>
 
+
+			<dependency>
+				<groupId>io.opentelemetry.instrumentation</groupId>
+				<artifactId>opentelemetry-instrumentation-bom</artifactId>
+				<version>2.6.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 
 		</dependencies>
 
@@ -153,6 +161,16 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-observation</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.opentelemetry.instrumentation</groupId>
+			<artifactId>opentelemetry-spring-boot-starter</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -177,18 +195,33 @@
 	</dependencies>
 	<build>
 		<finalName>otus-project</finalName>
+
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springdoc</groupId>
+					<artifactId>springdoc-openapi-maven-plugin</artifactId>
+				</plugin>
+
+				<plugin>
+					<groupId>org.openapitools</groupId>
+					<artifactId>openapi-generator-maven-plugin</artifactId>
+
+				</plugin>
+
+			</plugins>
+
+
+		</pluginManagement>
+
 		<plugins>
 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
-			
-			</plugin>
-			
-			<plugin>
-				<groupId>org.springdoc</groupId>
-				<artifactId>springdoc-openapi-maven-plugin</artifactId>			
+
 			</plugin>
 
 

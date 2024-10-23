@@ -126,22 +126,35 @@ services:
     networks:
       - otus
     volumes:
-      - ./prometheus/:/etc/prometheus/
+      - ./monitoring/prometheus/:/etc/prometheus/
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     restart: always
     hostname: prometheus
 
+ ####include gafana+opentelemetry
   grafana:
-    image: grafana/grafana
+    image: grafana/otel-lgtm
     depends_on:
       - prometheus
     ports:
       - 3000:3000
+      - 4317:4317
+      - 4318:4318
     volumes:
-      - ./grafana/:/etc/grafana/provisioning/
+      - ./monitoring/grafana/:/etc/grafana/provisioning/
     env_file:
       - ./monitoring/grafana/config.monitoring
+    networks:
+      - otus
+    restart: always
+
+####include gafana LOKI
+  grafana-loki:
+    image: grafana/loki
+    ports:
+      - 3100:3100    
+   
     networks:
       - otus
     restart: always

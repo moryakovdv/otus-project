@@ -23,7 +23,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 
-@SpringBootTest(classes = {otus.moryakovdv.meteoapi.web.StakeholderApiController.class})
+//@SpringBootTest(classes = {otus.moryakovdv.meteoapi.web.StakeholderApiController.class})
 @AutoConfigureMockMvc
 class ApplicationMockingTests {
 

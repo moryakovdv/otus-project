@@ -5,13 +5,12 @@
  */
 package otus.moryakovdv.meteoapi.web;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -20,7 +19,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-17T10:23:01.411391794+03:00[Europe/Moscow]", comments = "Generator version: 7.8.0")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-21T20:43:10.963067927+03:00[Europe/Moscow]", comments = "Generator version: 7.8.0")
 @Validated
 @Tag(name = "InformationController", description = "the InformationController API")
 public interface AllmeteotypesApi {
@@ -51,7 +51,9 @@ public interface AllmeteotypesApi {
     )
     
     default ResponseEntity<Void> loadAllMeteoTypes(
-        @Parameter(name = "limit", description = "limit records", required = true, in = ParameterIn.PATH) @PathVariable("limit") List<Integer> limit
+        @Parameter(name = "limit", description = "limit records", required = true, in = ParameterIn.PATH) 
+        @RequestParam("limit") 
+        Integer limit
     ) {
         return getDelegate().loadAllMeteoTypes(limit);
     }

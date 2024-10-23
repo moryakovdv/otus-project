@@ -40,10 +40,9 @@ paths:
         in: path
         description: limit records
         required: true
+        
         schema:
-          type: array
-          items:
-            type: integer 
+          type: integer
             
   /newMeteoInfoType:
     post: 
@@ -109,10 +108,8 @@ paths:
         description: ID stakeholderId
         required: true
         schema:
-          type: array
-          items:
-            type: integer 
-  
+          type: integer
+          
           
   /provider:
     get:
@@ -155,10 +152,8 @@ paths:
         description: ID providerId
         required: true
         schema:
-          type: array
-          items:
-            type: integer 
-        
+          type: integer
+          
     delete:
       summary: Удалить конкретного provider-а
       operationId: deleteProviderById
@@ -177,7 +172,5 @@ paths:
         description: ID providerId
         required: true
         schema:
-          type: array
-          items:
-            type: integer 
-    
+          type: integer
+          

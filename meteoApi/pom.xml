@@ -20,6 +20,11 @@
 			<artifactId>meteohelpers</artifactId>
 			<version>0.0.1</version>
 		</dependency>
+		
+			<dependency>
+			<groupId>io.opentelemetry.instrumentation</groupId>
+			<artifactId>opentelemetry-spring-boot-starter</artifactId>
+		</dependency>
 
 	</dependencies>
 
@@ -34,10 +39,14 @@
 
 			</plugin>
 			
-			
+		
+			<plugin>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-maven-plugin</artifactId>	
+				<version>1.4</version>		
+			</plugin>
 
 			<plugin>
-
 
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
@@ -46,6 +55,8 @@
 
 					<execution>
 						<id>openapi-generation</id>
+						
+						<!--way to disable re-generation-->
 						<phase></phase>
 
 						<goals>
@@ -64,6 +75,7 @@
 								<delegatePattern>true</delegatePattern>
 							</configOptions>
 						</configuration>
+						
 					</execution>
 				</executions>
 			</plugin>

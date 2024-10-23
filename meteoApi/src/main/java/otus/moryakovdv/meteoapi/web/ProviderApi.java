@@ -5,8 +5,6 @@
  */
 package otus.moryakovdv.meteoapi.web;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +18,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-17T10:23:01.411391794+03:00[Europe/Moscow]", comments = "Generator version: 7.8.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-21T20:43:10.963067927+03:00[Europe/Moscow]", comments = "Generator version: 7.8.0")
 @Validated
 @Tag(name = "ProviderController", description = "the ProviderController API")
 public interface ProviderApi {
@@ -79,7 +77,7 @@ public interface ProviderApi {
     )
     
     default ResponseEntity<Void> deleteProviderById(
-        @Parameter(name = "providerId", description = "ID providerId", required = true, in = ParameterIn.PATH) @PathVariable("providerId") List<Integer> providerId
+        @Parameter(name = "providerId", description = "ID providerId", required = true, in = ParameterIn.PATH) @PathVariable("providerId") Integer providerId
     ) {
         return getDelegate().deleteProviderById(providerId);
     }
@@ -107,7 +105,7 @@ public interface ProviderApi {
     )
     
     default ResponseEntity<Void> loadProviderById(
-        @Parameter(name = "providerId", description = "ID providerId", required = true, in = ParameterIn.PATH) @PathVariable("providerId") List<Integer> providerId
+        @Parameter(name = "providerId", description = "ID providerId", required = true, in = ParameterIn.PATH) @PathVariable("providerId") Integer providerId
     ) {
         return getDelegate().loadProviderById(providerId);
     }

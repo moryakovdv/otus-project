@@ -5,8 +5,6 @@
  */
 package otus.moryakovdv.meteoapi.web;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +18,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-17T10:23:01.411391794+03:00[Europe/Moscow]", comments = "Generator version: 7.8.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-21T20:43:10.963067927+03:00[Europe/Moscow]", comments = "Generator version: 7.8.0")
 @Validated
 @Tag(name = "StakeholderController", description = "the StakeholderController API")
 public interface StakeholderApi {
@@ -79,7 +77,7 @@ public interface StakeholderApi {
     )
     
     default ResponseEntity<Void> deleteStakeholderById(
-        @Parameter(name = "stakeholderId", description = "ID stakeholderId", required = true, in = ParameterIn.PATH) @PathVariable("stakeholderId") List<Integer> stakeholderId
+        @Parameter(name = "stakeholderId", description = "ID stakeholderId", required = true, in = ParameterIn.PATH) @PathVariable("stakeholderId") Integer stakeholderId
     ) {
         return getDelegate().deleteStakeholderById(stakeholderId);
     }
@@ -107,7 +105,7 @@ public interface StakeholderApi {
     )
     
     default ResponseEntity<Void> loadStakeholderById(
-        @Parameter(name = "stakeholderId", description = "ID stakeholderId", required = true, in = ParameterIn.PATH) @PathVariable("stakeholderId") List<Integer> stakeholderId
+        @Parameter(name = "stakeholderId", description = "ID stakeholderId", required = true, in = ParameterIn.PATH) @PathVariable("stakeholderId") Integer stakeholderId
     ) {
         return getDelegate().loadStakeholderById(stakeholderId);
     }
