@@ -20,98 +20,12 @@ services:
       context: ./meteoApi
       dockerfile: Dockerfile
     hostname: meteoapi
-    container_name: meteoApi
+    container_name: meteoapi
     restart: on-failure:1
     
 ##HOST_PORT:CONTAINER_PORT
     ports:
       - 8080:8888
-      
-    networks:
-      - otus
-    environment:
-      AUTH: null
- 
-  meteo-information:
-    build:
-      context: ./meteoInformation
-      dockerfile: Dockerfile
-    hostname: meteoInformation
-    container_name: meteoInformation
-    restart: on-failure:1
-    
-##HOST_PORT:CONTAINER_PORT
-    ports:
-      - 8081:8888
-      
-    networks:
-      - otus
-    environment:
-      AUTH: null
-      
-  meteo-producers:
-    build:
-      context: ./meteoProducers
-      dockerfile: Dockerfile
-    hostname: meteoProducers
-    container_name: meteoProducers
-    restart: on-failure:1
-    
-##HOST_PORT:CONTAINER_PORT
-    ports:
-      - 8082:8888
-      
-    networks:
-      - otus
-    environment:
-      AUTH: null
-      
-  meteo-users:
-    build:
-      context: ./meteoUsers
-      dockerfile: Dockerfile
-    hostname: meteoUsers
-    container_name: meteoUsers
-    restart: on-failure:1
-
-##HOST_PORT:CONTAINER_PORT
-    ports:
-      - 8083:8888
-      
-    networks:
-      - otus
-    environment:
-      AUTH: null
-
-    
-  meteo-services:
-    build:
-      context: ./meteoServices
-      dockerfile: Dockerfile
-    hostname: meteoServices
-    container_name: meteoServices
-    restart: on-failure:1
-    
-##HOST_PORT:CONTAINER_PORT
-    ports:
-      - 8084:8888
-      
-    networks:
-      - otus
-    environment:
-      AUTH: null
-
-  meteo-helpers:
-    build:
-      context: ./meteoHelpers
-      dockerfile: Dockerfile
-    hostname: meteoHelpers
-    container_name: meteoHelpers
-    restart: on-failure:1
-    
-##HOST_PORT:CONTAINER_PORT
-    ports:
-      - 8085:8888
       
     networks:
       - otus
@@ -134,15 +48,12 @@ services:
     restart: on-failure:1
     hostname: prometheus
 
- ####include gafana+opentelemetry
   grafana:
-    image: grafana/otel-lgtm
+    image: grafana/grafana
     depends_on:
       - prometheus
     ports:
       - 3000:3000
-      - 4317:4317
-      - 4318:4318
     volumes:
       - ./monitoring/grafana/:/etc/grafana/provisioning/
     env_file:
@@ -157,11 +68,32 @@ services:
     image: grafana/loki
     ports:
       - 3100:3100    
-    
+    command: -config.file=/etc/loki/local-config.yaml
     networks:
       - otus
     restart: on-failure:1
     hostname: loki
+
+##OpenTelemetry collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib
+    # volumes:
+    #   - ./monitoring/opentelemetry/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
+    ports:
+      - 1888:1888 # pprof extension
+      - 18888:8888 # Prometheus metrics exposed by the Collector
+      - 18889:8889 # Prometheus exporter metrics
+      - 13133:13133 # health_check extension
+      - 4317:4317 # OTLP gRPC receiver
+      - 4318:4318 # OTLP http receiver
+      - 55679:55679 # zpages extension
+    
+    networks:
+      - otus
+    restart: on-failure:1
+    hostname: opentelemetry
+
+
 networks:
   otus:
     driver: bridge

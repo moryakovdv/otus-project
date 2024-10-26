@@ -15,7 +15,7 @@
       }
     ]
   },
-  "description": "Dashboard for Spring Boot2 Statistics(by micrometer-prometheus).\nThis is a fork of dashboard 6756, fixed for Spring Boot 2.3 and support for Jetty instead of Tomcat along with scraping endpoints' metrics.",
+  "description": "Dashboard for OTUS-PROJECT",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 14430,
