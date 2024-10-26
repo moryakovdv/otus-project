@@ -12,6 +12,8 @@ services:
         - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
     networks:
         - otus
+    hostname: rabbitmq
+    restart: on-failure:1
 
   meteo-api:
     build:
@@ -19,7 +21,7 @@ services:
       dockerfile: Dockerfile
     hostname: meteoapi
     container_name: meteoApi
-    restart: always
+    restart: on-failure:1
     
 ##HOST_PORT:CONTAINER_PORT
     ports:
@@ -36,7 +38,7 @@ services:
       dockerfile: Dockerfile
     hostname: meteoInformation
     container_name: meteoInformation
-    restart: always
+    restart: on-failure:1
     
 ##HOST_PORT:CONTAINER_PORT
     ports:
@@ -53,7 +55,7 @@ services:
       dockerfile: Dockerfile
     hostname: meteoProducers
     container_name: meteoProducers
-    restart: always
+    restart: on-failure:1
     
 ##HOST_PORT:CONTAINER_PORT
     ports:
@@ -70,7 +72,7 @@ services:
       dockerfile: Dockerfile
     hostname: meteoUsers
     container_name: meteoUsers
-    restart: always
+    restart: on-failure:1
 
 ##HOST_PORT:CONTAINER_PORT
     ports:
@@ -88,7 +90,7 @@ services:
       dockerfile: Dockerfile
     hostname: meteoServices
     container_name: meteoServices
-    restart: always
+    restart: on-failure:1
     
 ##HOST_PORT:CONTAINER_PORT
     ports:
@@ -105,7 +107,7 @@ services:
       dockerfile: Dockerfile
     hostname: meteoHelpers
     container_name: meteoHelpers
-    restart: always
+    restart: on-failure:1
     
 ##HOST_PORT:CONTAINER_PORT
     ports:
@@ -129,7 +131,7 @@ services:
       - ./monitoring/prometheus/:/etc/prometheus/
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
-    restart: always
+    restart: on-failure:1
     hostname: prometheus
 
  ####include gafana+opentelemetry
@@ -147,18 +149,19 @@ services:
       - ./monitoring/grafana/config.monitoring
     networks:
       - otus
-    restart: always
+    restart: on-failure:1
+    hostname: grafana
 
 ####include gafana LOKI
   grafana-loki:
     image: grafana/loki
     ports:
       - 3100:3100    
-   
+    
     networks:
       - otus
-    restart: always
-
+    restart: on-failure:1
+    hostname: loki
 networks:
   otus:
     driver: bridge

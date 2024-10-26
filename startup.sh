@@ -1,6 +1,6 @@
 #!/bin/sh
 
-##mvn clean install
+mvn clean install
 
 #build multiply containers with docker-compose
 #daemon mode not used to display console output

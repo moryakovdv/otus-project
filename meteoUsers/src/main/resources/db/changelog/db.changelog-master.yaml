@@ -1,8 +1,0 @@
-##Основной контейнер changeset-ов
-databaseChangeLog:
-    - include:
-        file: db.meteousers.changelog-init.yaml
-        relativeToChangelogFile: true
-   
-        
-  
