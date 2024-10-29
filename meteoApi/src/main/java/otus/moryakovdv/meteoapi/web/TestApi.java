@@ -44,7 +44,7 @@ public interface TestApi {
         value = "/test"
     )
     
-    default ResponseEntity<Void> testGet(
+    default ResponseEntity<String> testGet(
         
     ) {
         return getDelegate().testGet();

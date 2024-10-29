@@ -6,7 +6,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>otus.moryakovdv.meteoservice</groupId>
 	<artifactId>meteoapi</artifactId>
-
+	<version>0.0.1</version>
+	
 	<parent>
 		<groupId>otus.moryakovdv</groupId>
 		<artifactId>meteoservice</artifactId>
@@ -20,13 +21,9 @@
 			<artifactId>meteohelpers</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-		
-			<dependency>
-			<groupId>io.opentelemetry.instrumentation</groupId>
-			<artifactId>opentelemetry-spring-boot-starter</artifactId>
-		</dependency>
-		
-		
+
+	
+
 
 	</dependencies>
 
@@ -40,12 +37,12 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
 			</plugin>
-			
-		
+
+
 			<plugin>
 				<groupId>org.springdoc</groupId>
-				<artifactId>springdoc-openapi-maven-plugin</artifactId>	
-				<version>1.4</version>		
+				<artifactId>springdoc-openapi-maven-plugin</artifactId>
+				<version>1.4</version>
 			</plugin>
 
 			<plugin>
@@ -57,7 +54,7 @@
 
 					<execution>
 						<id>openapi-generation</id>
-						
+
 						<!--way to disable re-generation-->
 						<phase></phase>
 
@@ -77,7 +74,7 @@
 								<delegatePattern>true</delegatePattern>
 							</configOptions>
 						</configuration>
-						
+
 					</execution>
 				</executions>
 			</plugin>

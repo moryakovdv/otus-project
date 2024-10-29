@@ -26,7 +26,7 @@ public interface TestApiDelegate {
      *         or Что-то пошло не так (status code 500)
      * @see TestApi#testGet
      */
-    default ResponseEntity<Void> testGet() {
+    default ResponseEntity<String> testGet() {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

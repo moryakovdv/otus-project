@@ -5,4 +5,5 @@
 #build multiply containers with docker-compose
 #daemon mode not used to display console output
 
-docker-compose -p otus-project up
+docker-compose build --no-cache &&
+docker-compose -p otus-project up --force-recreate -V

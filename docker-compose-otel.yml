@@ -1,0 +1,55 @@
+version: '3.1'
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - otus
+    hostname: rabbitmq
+    restart: on-failure:1
+
+  meteo-api:
+    build:
+      context: ./meteoApi
+      dockerfile: Dockerfile
+    hostname: meteoapi
+    container_name: meteoApi
+    restart: on-failure:1
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 8080:9999
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+ 
+
+ ####include gafana+opentelemetry
+  grafana:
+    image: grafana/otel-lgtm
+    ports:
+      - 3000:3000
+      - 4317:4317
+      - 4318:4318
+    volumes:
+      - ./monitoring/grafana/:/etc/grafana/provisioning/
+    env_file:
+      - ./monitoring/grafana/config.monitoring
+    networks:
+      - otus
+    restart: on-failure:1
+    hostname: grafana
+
+
+networks:
+  otus:
+    driver: bridge
