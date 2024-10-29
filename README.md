@@ -73,6 +73,10 @@ Otus. Java Advanced course
 
 *$ ./startup.sh*
 
+Пример результата запуска:
+![image](https://github.com/user-attachments/assets/074646f5-324e-4829-82b2-324aba61163b)
+
+
 # Слайды с результатами
 1. OpenAPI + swaggerUI
 ![image](https://github.com/user-attachments/assets/57e6a195-0578-48d5-a66d-23c270229339)
