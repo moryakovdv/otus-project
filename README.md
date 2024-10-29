@@ -36,6 +36,7 @@ Otus. Java Advanced course
  - prometeus
  - grafana
  - loki
+ - Zipkin
  
  
 4. Для демонстрации в модуле meteoAPI использован подход API-FIRST, скелет пакетов и классов сегенерирован через OpenAPI из YAML-описания.  
@@ -48,11 +49,11 @@ Otus. Java Advanced course
 
 8. Брокер сообщений RabbitMQ обеспечивает подписки(модель pub-sub) MeteoUsers информации на сообщения, выпускаемые MeteoProducers.   
 
-9. Сквозное логгирование прохождения запросов от модуля к модулю осуществляется через OpenTelemetry API + Loki
+9. Сквозное логгирование прохождения запросов от модуля к модулю осуществляется через Zipkin
 
 10. Для мониторинга параметров JVM, сбора статистики по результатам вызовов рест-запросов и пр. используется Prometeus
 
-11. Grafana применяется для визуального наблюдения метрик от Prometeus и OpenTelemetryД
+11. Grafana применяется для визуального наблюдения метрик от Prometeus и Zipkin, отображения логов от Loki
 12. Для защиты веб-методов публичного API в проекте MeteoApi подключена библиотека Resilelense4j и преднастроены TimeLimiter и RateLimiter
 
 13. Для нагрузочного тестирования применяются jmx-скрипты Jmeter
@@ -72,7 +73,24 @@ Otus. Java Advanced course
 
 *$ ./startup.sh*
 
-# Результаты
+# Слайды с результатами
 1. OpenAPI + swaggerUI
 ![image](https://github.com/user-attachments/assets/57e6a195-0578-48d5-a66d-23c270229339)
 
+2. Общая панель JVM-метрик в Grafana
+![image](https://github.com/user-attachments/assets/68159b92-1d44-4c25-8fc6-f9a3e5aa84bf)
+
+3. Обзор метрик тестовых вызовов рест-методов Meteo-api через веб-интерфейс Zipkin
+![image](https://github.com/user-attachments/assets/3ed5b799-3fa1-4d76-a0b4-7929100128b4)
+
+4. Просмотр метрик Prometheus в Grafana
+![image](https://github.com/user-attachments/assets/38d83a40-f124-4bad-b31d-e63903efd4cd)
+
+5. Просмотр логов от Loki в Grafana
+
+![image](https://github.com/user-attachments/assets/cab4a82a-d122-43dd-9e74-eb425d0b043d)
+
+
+
+   
+   
