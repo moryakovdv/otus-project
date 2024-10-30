@@ -28,16 +28,16 @@ Otus. Java Advanced course
 1. Микросервисная архитектура на Maven и Java-modules.  
 Модули представляют собой слабосвязанные проекты.
 
-2. Развертывание модулей осуществляется через Docker+Helm
-
-3. Общий docker-compose.yml производит разворачивание всей инфраструктуры:
+2. Общий docker-compose.yml производит разворачивание всей инфраструктуры:
  - всех модулей проекта
  - брокера RabbitMQ
  - prometeus
  - grafana
  - loki
  - Zipkin
- 
+   
+3. Каждый модуль проекта имеет свой файл для сборки и разворачивания Helm Chart в Kubernetes.
+   В этом случае инфраструктурные компоненты (Prometheus, Grafana, Loki, Zipkin, RabbitMQ) устанавливаются через Helm в отдельный namespace monitoring 
  
 4. Для демонстрации в модуле meteoAPI использован подход API-FIRST, скелет пакетов и классов сегенерирован через OpenAPI из YAML-описания.  
 
@@ -93,6 +93,11 @@ Otus. Java Advanced course
 5. Просмотр логов от Loki в Grafana
 
 ![image](https://github.com/user-attachments/assets/cab4a82a-d122-43dd-9e74-eb425d0b043d)
+
+6. Логи meteo-api при рзвертывании в кластере
+![Screenshot from 2024-10-30 15-52-05](https://github.com/user-attachments/assets/6af90cc5-ba42-44f0-ace2-fb94c57b1c9f)
+
+
 
 
 
