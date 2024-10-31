@@ -29,10 +29,30 @@
 		</encoder>
 	</appender>
 	
+	<appender name="LOKI"
+		class="com.github.loki4j.logback.Loki4jAppender">
+		<http>
+			<url>http://10.1.1.8:3100/loki/api/v1/push</url>
+		</http>
+		<format>
+			<label>
+				<pattern>app=meteo-information,host=${HOSTNAME}</pattern>
+			</label>
+			<message>
+				<pattern>%-5level [%.5(${HOSTNAME})] %.10thread %logger{20} | %msg
+					%ex</pattern>
+			</message>
+		</format>
+
+		<verbose>true</verbose>
+	</appender>
+	
 
 	<root level="info">
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE-ROLLING" />
+	    <appender-ref ref="LOKI" />
+		
 	</root>
 
 </configuration>
