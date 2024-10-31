@@ -1,0 +1,26 @@
+image:
+  repository: localhost:5000/meteo-api
+  tag: 0.0.1
+  pullPolicy: Always
+
+replicaCount: 1
+resources:
+  limits:
+    cpu: 100m
+    memory: 512Mi
+
+ports:
+  name: http
+  containerPort: 9999
+  protocol: TCP
+  targetPort: 9999
+  appProtocol: http
+
+service:
+  type: ClusterIP
+  port: 9999
+
+#database:
+#  url: "jdbc:h2:mem:testdb;NON_KEYWORDS=user"
+#  login: "sa"
+#  password: ""

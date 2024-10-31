@@ -1,0 +1,21 @@
+- job_name: 'meteoapi-job-1'
+  #scrape_interval: 15s
+  #scrape_timeout: 10s
+  #evaluation_interval: 15s
+  metrics_path: '/actuator/prometheus'
+  static_configs:
+   - targets: ['meteo-api-6f897df769-znxnk:9999']
+
+#- job_name: 'sample-pods'
+#  scrape_interval: 1s
+#  metrics_path: /
+#  kubernetes_sd_configs:
+#    - role: endpoints
+  #- job_name: 'meteoInformation-job'
+  #  metrics_path: '/actuator/prometheus'
+  #  static_configs:
+  #    - targets: ['meteoInformation:8081']
+  #- job_name: 'meteoProducers-job'
+  #  metrics_path: '/actuator/prometheus'
+  #  static_configs:
+  #    - targets: ['meteoProducers:8082']
