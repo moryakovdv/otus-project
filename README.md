@@ -97,6 +97,10 @@ Otus. Java Advanced course
 6. Логи meteo-api при рзвертывании в кластере
 ![Screenshot from 2024-10-30 15-52-05](https://github.com/user-attachments/assets/6af90cc5-ba42-44f0-ace2-fb94c57b1c9f)
 
+7. Создание топиков RabbitMQ из Spring-конфигурации
+   ![image](https://github.com/user-attachments/assets/fefef39f-ef2e-440f-850c-6c9366b615c4)
+
+
 
 
 
