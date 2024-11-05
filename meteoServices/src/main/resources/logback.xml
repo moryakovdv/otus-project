@@ -29,7 +29,7 @@
 		</encoder>
 	</appender>
 	
-<!--  
+
 	<appender name="LOKI"
 		class="com.github.loki4j.logback.Loki4jAppender">
 		<http>
@@ -47,12 +47,12 @@
 
 		<verbose>true</verbose>
 	</appender>
--->	
+
 
 	<root level="info">
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE-ROLLING" />
-		<appender-ref ref="LOKI" />
+		<!--  <appender-ref ref="LOKI" /> -->
 		
 	</root>
 

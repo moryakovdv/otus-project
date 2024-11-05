@@ -3,6 +3,7 @@ package otus.moryakovdv.meteoinformation.repository;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +21,8 @@ public interface MeteoProductRepository extends CrudRepository<MeteoProduct, Lon
 	/**Поиск всех метеоданных определенного типа по объекту (ФИР, аэродром, и т.п.)**/
 	Set<MeteoProduct> findAllByTypeAndOrigin(MeteoProductType type, Origin origin);
 
-	
+	@Query("SELECT * FROM METAR m WHERE m.icao_code=:icaoCode order by id desc limit 1")
+	Optional<MeteoProduct> findLastMetarByIcao(String icaoCode);
 	
 	
 }

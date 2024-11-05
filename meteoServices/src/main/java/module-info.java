@@ -19,6 +19,8 @@ open module otus.moryakovdv.meteoservices {
 	requires transitive  io.github.resilience4j.ratelimiter;
 	requires transitive  io.github.resilience4j.core;
 	requires micrometer.observation;
+	requires otus.moryakovdv.meteoinformation;
+	
 	
 	exports otus.moryakovdv.meteoservices.service;
 	exports otus.moryakovdv.meteoservices.rabbit;

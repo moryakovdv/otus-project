@@ -4,7 +4,50 @@
   #evaluation_interval: 15s
   metrics_path: '/actuator/prometheus'
   static_configs:
-   - targets: ['10.1.1.0:9999']
+   - targets: ['10.1.1.90:9999']
+
+- job_name: 'meteohelpers-job-2'
+  scrape_interval: 15s
+  #scrape_timeout: 10s
+  #evaluation_interval: 15s
+  metrics_path: '/actuator/prometheus'
+  static_configs:
+   - targets: ['10.1.1.90:9998']
+
+- job_name: 'meteoinformation-job-2'
+  scrape_interval: 15s
+  #scrape_timeout: 10s
+  #evaluation_interval: 15s
+  metrics_path: '/actuator/prometheus'
+  static_configs:
+   - targets: ['10.1.1.90:9997']
+
+- job_name: 'meteoproducers-job-2'
+  scrape_interval: 15s
+  #scrape_timeout: 10s
+  #evaluation_interval: 15s
+  metrics_path: '/actuator/prometheus'
+  static_configs:
+   - targets: ['10.1.1.90:9996']
+
+- job_name: 'meteoservices-job-2'
+  scrape_interval: 15s
+  #scrape_timeout: 10s
+  #evaluation_interval: 15s
+  metrics_path: '/actuator/prometheus'
+  static_configs:
+   - targets: ['10.1.1.90:9995']
+
+
+- job_name: 'meteousers-job-2'
+  scrape_interval: 15s
+  #scrape_timeout: 10s
+  #evaluation_interval: 15s
+  metrics_path: '/actuator/prometheus'
+  static_configs:
+   - targets: ['10.1.1.90:9994']
+
+
 
 #- job_name: 'sample-pods'
 #  scrape_interval: 1s

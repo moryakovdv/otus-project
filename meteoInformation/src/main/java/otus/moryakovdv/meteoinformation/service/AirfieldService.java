@@ -1,17 +1,11 @@
 package otus.moryakovdv.meteoinformation.service;
 
-import java.time.Instant;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import otus.moryakovdv.meteoinformation.model.Airfield;
 import otus.moryakovdv.meteoinformation.model.FlightInformationRegion;
-import otus.moryakovdv.meteoinformation.model.MeteoProduct;
-import otus.moryakovdv.meteoinformation.model.MeteoProductType;
-import otus.moryakovdv.meteoinformation.model.Origin;
 import otus.moryakovdv.meteoinformation.repository.AirfieldCrudRepository;
 import otus.moryakovdv.meteoinformation.repository.FIRCrudRepository;
 import otus.moryakovdv.meteoinformation.repository.MeteoProductRepository;
@@ -40,6 +34,8 @@ public class AirfieldService {
 		return airRep.save(newAf);
 
 	}
+	
+	
 
 	
 

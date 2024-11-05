@@ -48,10 +48,16 @@ public class MeteoinformationService {
 
 	/**загрузка сводок по аэродрому/региону*/
 	public Collection<MeteoProduct> loadProductsByType(MeteoProductType type, Origin origin) {
-
 		
 		return productRep.findAllByTypeAndOrigin(type, origin);
 				
+	}
+	
+	/**загрузка актуальной сводки по сводок по аэродрому*/
+	public String getMetarByIcao(String icaoCode) {
+		
+		return productRep.findLastMetarByIcao(icaoCode).get().getContent();
+		
 	}
 	
 
