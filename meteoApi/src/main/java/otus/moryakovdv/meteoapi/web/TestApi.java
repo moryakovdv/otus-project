@@ -17,7 +17,7 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-21T20:43:10.963067927+03:00[Europe/Moscow]", comments = "Generator version: 7.8.0")
 @Validated
-@Tag(name = "InformationController", description = "the InformationController API")
+@Tag(name = "TestController", description = "the TestController API")
 public interface TestApi {
 
     default TestApiDelegate getDelegate() {
@@ -33,7 +33,7 @@ public interface TestApi {
     @Operation(
         operationId = "testGet",
         summary = "Тестовый метод для контроля рботоспособности",
-        tags = { "InformationController" },
+        tags = { "TestController" },
         responses = {
             @ApiResponse(responseCode = "200", description = "It works!"),
             @ApiResponse(responseCode = "500", description = "Что-то пошло не так")
@@ -49,5 +49,27 @@ public interface TestApi {
     ) {
         return getDelegate().testGet();
     }
+    
+    
+    
+    @Operation(
+            operationId = "testAlive",
+            summary = "Проверка прохождения alive через RabbitMQ",
+            tags = { "TestController" },
+            responses = {
+                @ApiResponse(responseCode = "200", description = "It works!"),
+                @ApiResponse(responseCode = "500", description = "Что-то пошло не так")
+            }
+        )
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/testAlive"
+        )
+        
+    default ResponseEntity<String> testAlive(
+            
+        ) {
+            return getDelegate().testAlive();
+        }
 
 }

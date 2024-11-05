@@ -4,8 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>otus.moryakovdv.meteoservice</groupId>
-	<artifactId>meteoProducers</artifactId>
+	<artifactId>meteoproducers</artifactId>
 
 	<parent>
 		<groupId>otus.moryakovdv</groupId>
@@ -13,12 +12,21 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<dependencies>
-
+		
 		<dependency>
-			<groupId>otus.moryakovdv.meteoservice</groupId>
+			<groupId>otus.moryakovdv</groupId>
 			<artifactId>meteohelpers</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.1-SNAPSHOT</version>
+
 		</dependency>
+		<dependency>
+			<groupId>otus.moryakovdv</groupId>
+			<artifactId>meteoservices</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+
+		</dependency>
+
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -51,11 +59,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>otus.moryakovdv.meteoproducers.WebApplication</mainClass>
-				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>

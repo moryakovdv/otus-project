@@ -26,23 +26,33 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.web.servlet.MockMvc;
 
+import otus.moryakovdv.meteoservices.service.NotificationService;
 
-@SpringBootTest()
+
+@SpringBootTest(args = "--add-opens=java.base/java.util=ALL-UNNAMED")
 @AutoConfigureMockMvc
 @ComponentScan(basePackages = {"otus.moryakovdv.meteoservices.service", "otus.moryakovdv.meteoservices.rabbit"})
-class ApplicationMockingTests {
+class ModulesTests {
 
-	@Autowired
-	private MockMvc mockMvc;
+	@Autowired MockMvc mockMvc;
 	
 	@Autowired ApplicationContext context;
+		
+	@Autowired NotificationService nService;
 	
 	@Test
-	void testMocks() {
+	void testModule() {
 		
-		assertNotNull(mockMvc);
 		assertNotNull(context);
+		assertNotNull(mockMvc);
+		assertNotNull(nService);
+
+	}
+	
+	@Test
+	void testNotification() {
 		
+		nService.notifyAliveMessage();		
 	}
 	
 	

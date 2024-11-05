@@ -12,7 +12,11 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -29,18 +33,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import otus.moryakovdv.meteoapi.service.AllmeteotypesApiService;
 
 @SpringBootTest()
+@AutoConfigureMockMvc
+@ComponentScan(basePackages = {"otus.moryakovdv.meteoservices.service", "otus.moryakovdv.meteoservices.rabbit"})
 @TestMethodOrder(OrderAnnotation.class)
 class LoggingTest {
 
-	@Autowired
-	private AllmeteotypesApiService allmts;
+	@Autowired AllmeteotypesApiService allmts;
 	
-	@Autowired
-	private RestTemplate restTemplate;
+	@Autowired RestTemplate restTemplate;
 	
 	@Order(10)
 	@Test
-	void testLokiPush() throws JsonMappingException, JsonProcessingException {
+	void testLoadAllMeteotTypes() throws JsonMappingException, JsonProcessingException {
 		
 		allmts.loadAllMeteoTypes(10);
 	}

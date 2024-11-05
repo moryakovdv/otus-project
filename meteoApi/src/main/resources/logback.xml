@@ -41,8 +41,7 @@
 				<pattern>app=meteo-api,host=${HOSTNAME}</pattern>
 			</label>
 			<message>
-				<pattern>%-5level [%.5(${HOSTNAME})] %.10thread %logger{20} | %msg
-					%ex</pattern>
+				<pattern>%-5level [%.5(${HOSTNAME})] %.10thread %logger{20} | %msg %ex</pattern>
 			</message>
 		</format>
 		
@@ -54,7 +53,7 @@
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE-ROLLING" />
 
-		<appender-ref ref="LOKI" />
+		<!--  <appender-ref ref="LOKI" /> -->
 		
 	</root>
 

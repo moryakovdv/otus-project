@@ -30,5 +30,17 @@ public interface TestApiDelegate {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
+    
+    /**
+     * GET /testAlive : Тест прохождения Alive пакета
+     *
+     * @return It works! (status code 200)
+     *         or Что-то пошло не так (status code 500)
+     * @see TestApi#testAlive
+     */
+    default ResponseEntity<String> testAlive() {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
 
 }

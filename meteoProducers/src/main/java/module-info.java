@@ -1,14 +1,11 @@
 open module otus.moryakovdv.meteoproducers {
-	exports otus.moryakovdv.meteoproducers.service;
-	exports otus.moryakovdv.meteoproducers.model;
-	exports otus.moryakovdv.meteoproducers.repository;
-	exports otus.moryakovdv.meteoproducers.web;
-	exports  otus.moryakovdv.meteoproducers;
+	
 
 	requires transitive jakarta.servlet;
 	requires jakarta.persistence;
 	
 	requires otus.moryakovdv.meteohelpers; 
+	requires transitive otus.moryakovdv.meteoservices;
 
 	
 	requires lombok;
@@ -34,5 +31,12 @@ open module otus.moryakovdv.meteoproducers {
 	requires transitive  io.github.resilience4j.ratelimiter;
 	requires transitive  io.github.resilience4j.core;
 	requires micrometer.observation;
+	
+	
+	exports otus.moryakovdv.meteoproducers.service;
+	exports otus.moryakovdv.meteoproducers.model;
+	exports otus.moryakovdv.meteoproducers.repository;
+	exports otus.moryakovdv.meteoproducers.web;
+	exports  otus.moryakovdv.meteoproducers;
 
 }

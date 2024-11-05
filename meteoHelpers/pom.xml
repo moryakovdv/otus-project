@@ -4,32 +4,36 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>otus.moryakovdv.meteoservice</groupId>
 	<artifactId>meteohelpers</artifactId>
-	<version>0.0.2</version>
-	
+
 	<parent>
 		<groupId>otus.moryakovdv</groupId>
 		<artifactId>meteoservice</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<dependencies>
-		
+
 
 	</dependencies>
 
 	<build>
 		<finalName>meteo-helpers</finalName>
-		
 		<plugins>
-			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>otus.moryakovdv.meteohelpers.WebApplication</mainClass>
-				</configuration>
+				<executions>
+					<execution>
+						<id>repackage</id>
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
+
+
 		</plugins>
+
 	</build>
 </project>

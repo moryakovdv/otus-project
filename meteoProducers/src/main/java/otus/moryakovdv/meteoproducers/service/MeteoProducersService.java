@@ -24,13 +24,6 @@ public class MeteoProducersService {
 	
 	public void changeProducerSchedule() {}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
