@@ -11,6 +11,10 @@
 		<artifactId>meteoservice</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	<properties>
+		<start-class>otus.moryakovdv.meteoproducers.WebApplication</start-class>
+	</properties>
+	
 	<dependencies>
 		
 		<dependency>

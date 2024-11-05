@@ -12,6 +12,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<start-class>otus.moryakovdv.meteoapi.WebApplication</start-class>
+	</properties>
+
 	<dependencies>
 
 
@@ -35,8 +39,6 @@
 				<version>1.4</version>
 			</plugin>
 
-
-			
 
 			<plugin>
 
