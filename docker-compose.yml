@@ -14,12 +14,122 @@ services:
     
 ##HOST_PORT:CONTAINER_PORT
     ports:
-      - 8080:9999
+      - 9999:9999
       
     networks:
       - otus
     environment:
       AUTH: null
+
+  meteo-helpers:
+    build:
+      context: ./meteoHelpers
+      dockerfile: Dockerfile
+
+    hostname: meteohelpers
+    container_name: meteohelpers
+
+    restart: on-failure:1
+
+
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 9998:9998
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+
+  meteo-information:
+    build:
+      context: ./meteoInformation
+      dockerfile: Dockerfile
+
+    hostname: meteoinformation
+    container_name: meteoinformation
+
+    restart: on-failure:1
+
+
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 9997:9997
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+
+  meteo-producers:
+    build:
+      context: ./meteoProducers
+      dockerfile: Dockerfile
+
+    hostname: meteoproducers
+    container_name: meteoproducers
+
+    restart: on-failure:1
+
+
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 9996:9996
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+  meteo-services:
+    build:
+      context: ./meteoServices
+      dockerfile: Dockerfile
+
+    hostname: meteoservices
+    container_name: meteoservices
+
+    restart: on-failure:1
+
+
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 9995:9995
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+
+  meteo-users:
+    build:
+      context: ./meteoUsers
+      dockerfile: Dockerfile
+
+    hostname: meteousers
+    container_name: meteousers
+
+    restart: on-failure:1
+
+
+    
+##HOST_PORT:CONTAINER_PORT
+    ports:
+      - 9994:9994
+      
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+
  
 
   zipkin:

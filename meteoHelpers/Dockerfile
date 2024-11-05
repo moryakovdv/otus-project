@@ -4,7 +4,7 @@ FROM openjdk:17-oracle
 RUN mkdir /meteoHelpers
 #Скопировать приложение в контейнер
 COPY ./target/meteo-helpers.jar /meteoHelpers/meteo-helpers.jar
-#открыть порт 8888
-EXPOSE 8888
+#открыть порт 9998
+EXPOSE 9998
 #запустить приложение при запуске контейнера
 ENTRYPOINT [ "java", "-jar", "/meteoHelpers/meteo-helpers.jar" ]
